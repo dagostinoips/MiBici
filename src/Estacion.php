@@ -4,7 +4,7 @@ namespace Mibici;
 
 class Estacion implements EstacionInterface {
     
-    protected bicisDisponibles;
+    protected $bicisDisponibles;
 
     public function sacarBici(BicicletaInterface $bici) {
         $pos = array_search ($bici->patente, $this->bicisDisponibles);
