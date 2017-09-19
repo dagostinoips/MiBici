@@ -4,11 +4,11 @@ namespace Mibici;
 
 class Estacion implements EstacionInterface {
     
-    private cantidadBicisDisponibles;
+    protected cantidadBicisDisponibles;
+    protected bicisDisponibles;
 
     public function sacarBici(BicicletaInterface $bici) {
         
-
     }
 
     public function dejarBici(BicicletaInterface $bici) {
