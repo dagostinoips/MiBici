@@ -3,8 +3,11 @@
 namespace Mibici;
 
 class Estacion implements EstacionInterface {
+    
+    private cantidadBicisDisponibles;
 
     public function sacarBici(BicicletaInterface $bici) {
+        
 
     }
 
