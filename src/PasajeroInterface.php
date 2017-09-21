@@ -4,24 +4,24 @@ namespace Mibici;
 
 interface PasajeroInterface {
 
-	protected $dni, $saldo, $plan, $viajesdisponibles, $tiposdeplan;
+    function getDNI();
 
-    public function getDNI();
+    function getSaldo();
 
-    public function getSaldo();
+    function getPlan();
 
-    public function getPlan();
+    function getTiposdeplan();
 
-    public function getTiposdeplan();
+    function getViajesdisponibles();
 
-    public function getViajesdisponibles();
+    function agregarViajes($viajes);
 
-    protected function agregarSaldo();
+    function agregarSaldo($dinero);
 
-    protected function retirarSaldo();
+    function retirarSaldo($dinero);
 
-    protected function comprarPlan();
+    function comprarPlan($tipodeplan);
 
-    protected function usarViaje(ViajeInterface $viaje);
+    function usarViaje(ViajeInterface $viaje);
 
 }
