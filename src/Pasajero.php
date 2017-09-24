@@ -29,11 +29,11 @@ class Pasajero implements PasajeroInterface {
         return $this->plan;
     }
 
-    public function getTiposdeplan() {
+    public function getTiposDePlan() {
         return $this->tiposdeplan;
     }
 
-    public function getViajesdisponibles() {
+    public function getViajesDisponibles() {
         return $this->viajesdisponibles;
     }
 
@@ -71,7 +71,7 @@ class Pasajero implements PasajeroInterface {
 
     public function usarViaje(ViajeInterface $viaje) {
         $fecha = new DateTime();
-        $viaje->iniciar(BicicletaInterface $bici, EstacionInterface $estacion, $this, $fecha->date_timestamp_get());
+        $viaje->iniciar(BicicletaInterface $bici, EstacionInterface $estacion, $this, $fecha->getTimestamp());
         if($viaje->datos()['dni_pasajero'] == $this->DNI) { // Condicion de que funciona el viaje, por ahora.
             $this->viajesdisponibles--;
             return True;
