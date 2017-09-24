@@ -41,13 +41,16 @@ class Pasajero implements PasajeroInterface {
         $this->viajesdisponibles += $viajes;
     }
 
-    public function agregarSaldo($dinero);
+    public function agregarSaldo($dinero) {
+        $this->saldo += $dinero;
+    }
 
     protected function retirarSaldo($dinero) {
         $this->saldo -= $dinero;
     }
 
     public function comprarPlan($tipodeplan) {
+        r = "";
         if(in_array($tipodeplan, $this->getTiposdeplan())) {
             $viajesdeplan = $this->getTiposdeplan()[$tipodeplan][0];
             $preciodeplan = $this->getTiposdeplan()[$tipodeplan][1];
@@ -55,16 +58,26 @@ class Pasajero implements PasajeroInterface {
                 $this->plan = $tipodeplan;
                 $this->retirarSaldo($preciodeplan);
                 $this->agregarViajes($viajesdeplan);
-                print_r("Agregado el plan por $" . $preciodeplan . ".\n");
+                r .= "Agregado el plan por $" . $preciodeplan . ".\n";
             } else {
-                print_r("No hay suficiente saldo.\n");
+                r .= "No hay suficiente saldo.\n";
             }
         } else {
-            print_r("No existe el plan.\n");
+            r .= "No existe el plan.\n";
         }
-        print_r("Saldo actual: $" . $this->getSaldo() . ". Viajes disponibles: " . $this->getViajesdisponibles() . ".\n");
+        r .= "Saldo actual: $" . $this->getSaldo() . ". Viajes disponibles: " . $this->getViajesdisponibles() . ".\n";
+        return r;
     }
 
-    public function usarViaje(ViajeInterface $viaje);
+    public function usarViaje(ViajeInterface $viaje) {
+        $fecha = new DateTime();
+        $viaje->iniciar(BicicletaInterface $bici, EstacionInterface $estacion, $this, $fecha->date_timestamp_get());
+        if($viaje->datos()['dni_pasajero'] == $this->DNI) { // Condicion de que funciona el viaje, por ahora.
+            $this->viajesdisponibles--;
+            return True;
+        } else {
+            return False;
+        }
+    }
 
 }
