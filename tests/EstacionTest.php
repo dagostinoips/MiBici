@@ -23,7 +23,7 @@ class PasajeroTest extends TestCase {
     public function testPasajeroEsInstanciado() {
         $movi_test = new Movi("12345678", "1242145")
         $pasajero_test = new Pasajero($movi_test);
-        $this->assertTrue($pasajero_test->getViajesDisponibles() == 0);
+        $this->assertTrue($pasajero_test->movi->getViajesDisponibles() == 0);
     }
 
     public function testPasajeroCargaSaldoYCompraViajes() {
