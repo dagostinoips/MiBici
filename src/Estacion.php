@@ -3,11 +3,10 @@
 namespace Mibici;
 
 class Estacion implements EstacionInterface {
-    protected $bicisDisponibles;
 
     public function sacarBici(BicicletaInterface $bici) {
-        $pos = array_search($bici->patente, $this->bicisDisponibles);
-        unset ($this->bicisDisponibles[$pos]);
+        $pos = array_search($bici->patente, $this->bicis);
+        unset ($this->bicis[$pos]);
     }
 
     public function dejarBici(BicicletaInterface $bici) {
