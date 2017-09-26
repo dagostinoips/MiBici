@@ -15,28 +15,29 @@ class Estacion implements EstacionInterface {
     }
 
     public function anclajesDisponibles() {
-        
+
     }
-    
+
     public function anclajesTotales() {
-        
+
     }
-    
+
     public function bicicletasDisponibles() {
-        
+
     }
-    
+
     public function enServicio() {
-        
+
         return $this->estado;
     }
+
     public function desactivarEstacion() { 
-        
+
         $this->estado = False;
     }
-    
+
     public function activarEstacion() {
-       
+
         $this->estado = True;
-    }    
+    }
 }
