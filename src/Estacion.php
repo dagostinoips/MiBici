@@ -25,10 +25,7 @@ class Estacion implements EstacionInterface{
 	}
 
 	public function enServicio() {
-		protected $ 
-		if () {
-			return TRUE;
-		}
-		return FALSE;
+		return $this->estado;
 	}
+
 }
