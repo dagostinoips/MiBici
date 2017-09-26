@@ -8,7 +8,7 @@ class EstacionTest extends TestCase {
 
     public function testEstacionEnServicio() {
         // Las estaciones nuevas siempre están en servicio.
-        $estacion = new Estacion(True,10);
+        $estacion = new Estacion();
         $this->assertFalse($estacion->desactivarEstacion());
     }
 
