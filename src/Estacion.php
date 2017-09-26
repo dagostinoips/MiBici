@@ -10,7 +10,6 @@ class bici implements BicicletaInterface {
 }
 
 class Estacion implements EstacionInterface {
-    
     protected $bicisDisponibles;
 
     public function sacarBici(BicicletaInterface $bici) {
