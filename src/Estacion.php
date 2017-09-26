@@ -3,10 +3,17 @@
 namespace Mibici;
 
 class Estacion implements EstacionInterface {
-    protected $anclajeLibres;
-    protected $anclajeTotales;
+    protected $anclajesTotales;
+    protected $anclajesLibres;
+    protected $bicis = [];
+    public function __construct($a){
+    $this->anclajesTotales = $a;
+    $this->anclajesLibres = $this->anclajesTotales;
+    $this->bicis = [];
+    }
+
     public function sacarBici(BicicletaInterface $bici) {
-    
+
     }
 
     public function dejarBici(BicicletaInterface $bici) {
@@ -14,23 +21,20 @@ class Estacion implements EstacionInterface {
     }
 
     public function anclajesDisponibles() {
-        return $this->anclajeLibres;
+        return $this->anclajesLibres;
     }
 
     public function anclajesTotales() {
-        return $this->anclajeTotales; 
+        return $this->anclajesTotales;  
     }
 
     public function bicicletasDisponibles() {
-
+        print_r($bicis);
+        return;
     }
 
     public function enServicio() {
         return TRUE;
-    }
-    public function __construct($a,$b){
-        $this->anclajeLibres=$a;
-        $this->anclajeTotales=$b;
     }
 
 }
