@@ -4,7 +4,7 @@ namespace Mibici;
 
 class Movi implements MoviInterface {
 
-    protected $dni, $id, $saldo, $plan, $viajesdisponibles, $bicicletasenuso;
+    protected $dni, $id, $saldo, $plan, $viajesdisponibles, $bicicletaenuso;
 
     protected $tiposdeplan = array('NoPlan' => [0,0], 'Ocasional' => [2,10], 'Semanal' => [14,50], 'Mensual' => [60,100]); // ¡Preliminarísimo! (Viajes,Precio)
 
@@ -13,7 +13,7 @@ class Movi implements MoviInterface {
         $this->id = $id;
         $this->saldo = 0;
         $this->viajesdisponibles = 0;
-        $this->bicicletasenuso = [];
+        $this->bicicletaenuso = NULL;
         $this->comprarPlan('NoPlan');
     }
 
@@ -74,11 +74,22 @@ class Movi implements MoviInterface {
     }
 
     public function usarViaje(ViajeInterface $viaje, BicicletaInterface $bici, EstacionInterface $estacion) {
-        $fecha = new DateTime();
-        $viaje->iniciar($bici, $estacion, $this, $fecha->getTimestamp());
-        if($viaje->datos()['dni_pasajero'] == $this->DNI) { // Condicion de que funciona el viaje, por ahora.
+        if($this->bicicletaenuso == NULL) { // Condicion de que funciona el viaje, por ahora.
+            $fecha = new DateTime();
+            $viaje->iniciar($bici, $estacion, $this, $fecha->getTimestamp());
             $this->viajesdisponibles--;
-            $this->bicicletasenuso->append($bici);
+            $this->bicicletaenuso = $bici;
+            return True;
+        } else {
+            return False;
+        }
+    }
+
+    public function concluirViaje(ViajeInterface $viaje, BicicletaInterface $bici, EstacionInterface $estacion) {
+        if($this->bicicletaenuso != NULL) { // Condicion de que funciona el viaje, por ahora.
+            $fecha = new DateTime();
+            $viaje->terminar($bici, $estacion, $this, $fecha->getTimestamp());
+            $this->bicicletaenuso = NULL;
             return True;
         } else {
             return False;
