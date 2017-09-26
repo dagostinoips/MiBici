@@ -14,14 +14,14 @@ interface PasajeroInterface {
 
     function getViajesdisponibles();
 
-    function agregarViajes($viajes);
+    function agregarViajes();
 
-    function agregarSaldo($dinero);
+    function agregarSaldo();
 
-    function retirarSaldo($dinero);
+    function retirarSaldo();
 
-    function comprarPlan($tipodeplan);
+    function comprarPlan();
 
-    function usarViaje(ViajeInterface $viaje);
+    function usarViaje();
 
 }

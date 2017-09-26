@@ -2,12 +2,12 @@
 
 namespace Mibici;
 
-interface PasajeroInterface {
+interface MoviInterface {
 
-    public function getID();
+    function getID();
 
-    public function getDNI();
+    function getDNI();
 
-    
+    function getBicisEnUso();
 
 }
