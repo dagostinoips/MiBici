@@ -6,12 +6,14 @@ class Estacion implements EstacionInterface {
     protected $anclajeLibres;
     protected $anclajeTotales;
     
-    public function sacarBici(BicicletaInterface $bici) {
     
+    public function sacarBici(BicicletaInterface $bici) {
+        
     }
 
     public function dejarBici(BicicletaInterface $bici) {
         $this->anclajeLibres = $this->anclajeLibres - 1;
+        array_push ($this->bicis, $bici => $bici->patente);
     }
 
     public function anclajesDisponibles() {
