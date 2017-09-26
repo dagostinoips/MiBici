@@ -2,13 +2,6 @@
 
 namespace Mibici;
 
-class bici implements BicicletaInterface {
-    protected $nroPatente;
-    public function patente() {
-        return $this->nroPatente;
-    }
-}
-
 class Estacion implements EstacionInterface {
     protected $bicisDisponibles;
 
