@@ -3,10 +3,17 @@
 namespace Mibici;
 class Estacion implements EstacionInterface {
     
+    protected $nombre;
     protected $anclajeLibres;
     protected $anclajeTotales;
     public $bicicletas = [];
     protected $estado = True; 
+    
+    public function verNombre(){
+     
+        return $this->nombre;
+    }
+    
     public function sacarBici(BicicletaInterface $bici) {
     
     }
