@@ -14,7 +14,14 @@ class Estacion implements EstacionInterface {
     }
 
     public function dejarBici(BicicletaInterface $bici) {
-            
+            if($this->estado)
+            {
+                if($this->anclajeLibre != 0)
+                {
+                    array_push($this->bicicletas,patente($bici));
+                    $this->anclajeLibre = $this->anclajeLibre-1; 
+                }
+            }
     }
 
     public function anclajesDisponibles() {

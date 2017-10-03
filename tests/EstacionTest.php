@@ -24,6 +24,9 @@ class EstacionTest extends TestCase {
         $this->assertTrue($estacion->enServicio());
 
         $this->assertEquals($estacion->bicicletasDisponibles() , $bicisdisponibles);
+        
+        $estacion->dejarBici($bici);
+        $this->assertTrue($bicisdisponibles != $estacion->bicicletasDisponibles()); 
     }
 
 }
