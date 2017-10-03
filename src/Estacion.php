@@ -10,7 +10,8 @@ class Estacion implements EstacionInterface {
     protected $estado = True; 
 
     public function sacarBici(BicicletaInterface $bici) {
-    
+        $pos = array_search($bici->patente, $this->bicis);
+        unset ($this->bicis[$pos]);
     }
 
     public function dejarBici(BicicletaInterface $bici) {
